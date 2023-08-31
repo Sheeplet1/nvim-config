@@ -3,8 +3,8 @@ local plugins = {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
+      local dap = require "dap"
+      local dapui = require "dapui"
       dapui.setup()
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
@@ -15,13 +15,13 @@ local plugins = {
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
-    end
+    end,
   },
   {
     "mfussenegger/nvim-dap",
     config = function(_, opts)
-        require("core.utils").load_mappings("dap")
-    end
+      require("core.utils").load_mappings "dap"
+    end,
   },
   {
     "mfussenegger/nvim-dap-python",
@@ -33,7 +33,7 @@ local plugins = {
     config = function(_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      require("core.utils").load_mappings("dap")
+      require("core.utils").load_mappings "dap"
     end,
   },
   {
@@ -41,7 +41,7 @@ local plugins = {
     ft = "crystal",
     config = function(_)
       vim.g.crystal_auto_format = 1
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -54,17 +54,30 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- Python --
         "pyright",
         "debugpy",
         "mypy",
         "ruff",
         "black",
+        "isort",
+        -- General Formatting --
+        "prettier",
+        "prettierd",
+        -- Lua Formatting --
+        "stylua",
+        -- Frontend --
+        "typescript-language-server",
+        "tailwindcss-language-server",
+        "css-lsp",
+        "html-lsp",
+        "emmet-ls",
       },
     },
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
+    lazy = false,
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -73,26 +86,36 @@ local plugins = {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     lazy = false,
-    opts = {}
+    opts = {},
   },
   {
     "akinsho/toggleterm.nvim",
     version = "*",
-    config = true
+    config = true,
   },
   {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({
-        })
-    end
+      require("nvim-surround").setup {}
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = { "python", "html", "javascript", "css", "vim", "tsx", "json", "lua" },
+      ensure_installed = {
+        "python",
+        "html",
+        "javascript",
+        "css",
+        "vim",
+        "tsx",
+        "typescript",
+        "vue",
+        "json",
+        "lua",
+      },
     },
     dependencies = {
       { "windwp/nvim-ts-autotag", opts = {} },
@@ -102,6 +125,15 @@ local plugins = {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {},
+  },
+  {
+    "glepnir/lspsaga.nvim",
+    opts = {
+      branch = "main",
+    },
+    config = function()
+      require("lspsaga").setup {}
+    end,
   },
 }
 return plugins
