@@ -135,5 +135,14 @@ local plugins = {
       require("lspsaga").setup {}
     end,
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    lazy = false,
+    build = "cd app && npm install",
+    opts = {},
+    config = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }
 return plugins
