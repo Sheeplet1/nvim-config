@@ -20,11 +20,25 @@ lspconfig.isort.setup {
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  settings = {
+    separate_diagnostic_server = true,
+    public_diagnostic_on = "insert_leave",
+    tsserver_plugins = {},
+  },
 }
 
 lspconfig.emmet_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "css", "html", "javascript", "javascriptreact", "typescriptreact", "vue" },
+}
+
+lspconfig.html.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.cssls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
