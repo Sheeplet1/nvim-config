@@ -19,8 +19,8 @@ local opts = {
       "json",
       "markdown",
     },
-    diagnostics.eslint,
-    code_actions.eslint,
+    diagnostics.eslint_d,
+    code_actions.eslint_d,
 
     -- Lua
     formatting.stylua,
@@ -30,6 +30,9 @@ local opts = {
     diagnostics.ruff,
     formatting.isort,
     formatting.black,
+
+    -- Github --
+    code_actions.gitsigns,
   },
 
   -- Autoformat on save --
