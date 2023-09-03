@@ -3,18 +3,24 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
--- PYTHON --
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "python" },
+local servers = {
+  -- PYTHON --
+  "pyright",
+  "isort",
+
+  -- FRONTEND --
+  "emmet_ls",
+  "html",
+  "cssls",
+  "tsserver",
 }
 
-lspconfig.isort.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "python" },
-}
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
 
 -- FRONTEND --
 lspconfig.tsserver.setup {
@@ -25,20 +31,4 @@ lspconfig.tsserver.setup {
     public_diagnostic_on = "insert_leave",
     tsserver_plugins = {},
   },
-}
-
-lspconfig.emmet_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "css", "html", "javascript", "javascriptreact", "typescriptreact", "vue" },
-}
-
-lspconfig.html.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-lspconfig.cssls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
 }
