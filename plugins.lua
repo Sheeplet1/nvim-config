@@ -37,13 +37,6 @@ local plugins = {
     end,
   },
   {
-    "vim-crystal/vim-crystal",
-    ft = "crystal",
-    config = function(_)
-      vim.g.crystal_auto_format = 1
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
@@ -125,6 +118,7 @@ local plugins = {
   },
   {
     "folke/trouble.nvim",
+    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {},
   },
@@ -156,6 +150,10 @@ local plugins = {
     config = function()
       require("codeium").setup {}
     end,
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
   },
 }
 return plugins
