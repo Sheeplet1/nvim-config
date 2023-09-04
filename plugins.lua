@@ -19,8 +19,9 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap",
-    config = function(_, opts)
+    config = function()
       require("core.utils").load_mappings "dap"
+      require "custom.configs.dap"
     end,
   },
   {
@@ -30,7 +31,7 @@ local plugins = {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },
-    config = function(_, opts)
+    config = function()
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
       require("core.utils").load_mappings "dap"
@@ -67,6 +68,7 @@ local plugins = {
         "emmet-ls",
         "eslint-lsp",
         "eslint_d",
+        "js-debug-adapter",
       },
     },
   },
