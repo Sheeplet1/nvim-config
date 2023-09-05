@@ -143,17 +143,6 @@ local plugins = {
     end,
   },
   {
-    "jcdickinson/codeium.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    config = function()
-      require("codeium").setup {}
-    end,
-  },
-  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
