@@ -13,3 +13,11 @@ On new machines where no packages have been installed previously.
 > npm install -g typescript typescript-language-server
 >
 > npm install -g @fsouza/prettierd
+>
+> npm install -g eslint
+>
+> npm install -g eslint_d
+>
+> npm install -g tree-sitter-cli
+>
+> npm install -g @compodoc/live-server
