@@ -146,5 +146,22 @@ local plugins = {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+  {
+    "folke/zen-mode.nvim",
+    lazy = false,
+    opts = {},
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    lazy = false,
+    config = function()
+      require("indent_blankline").setup {
+        show_current_context = true,
+        show_current_context_start = true,
+        show_end_of_line = true,
+      }
+      vim.cmd [[highlight IndentBlanklineContextChar guifg=#cba6f7 gui=nocombine]]
+    end,
+  },
 }
 return plugins
