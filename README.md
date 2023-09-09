@@ -1,6 +1,6 @@
 # Personal NVIM Config
 
-> This is also sourced from NVChad.
+Base config from NVChad which I then added my own configs.
 
 ## Installation
 
@@ -9,5 +9,7 @@
 ### Frontend
 On new machines where no packages have been installed previously.
 > npm install -g emmet-ls
+> 
 > npm install -g typescript typescript-language-server
+>
 > npm install -g @fsouza/prettierd
