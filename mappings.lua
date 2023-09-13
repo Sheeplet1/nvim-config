@@ -6,6 +6,9 @@ M.general = {
     ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
     ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
     ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
+    ["<leader>d"] = { '<cmd> "_d', "Delete without yanking" },
+    ["<leader>p"] = { '<cmd> "_dp', "Replace without yank" },
+    ["C-f"] = { "<cmd>silent !tmux neww tmux-sessionizer<CR>" },
   },
 }
 
