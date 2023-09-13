@@ -161,6 +161,7 @@ local plugins = {
         show_end_of_line = true,
       }
       vim.cmd [[highlight IndentBlanklineContextChar guifg=#cba6f7 gui=nocombine]]
+      vim.cmd [[highlight IndentBlanklineContextStart guisp=#cba6f7 gui=underline]]
     end,
   },
 }

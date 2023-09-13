@@ -6,7 +6,6 @@ local lspconfig = require "lspconfig"
 local servers = {
   -- PYTHON --
   "pyright",
-  "isort",
 
   -- FRONTEND --
   "emmet_ls",
