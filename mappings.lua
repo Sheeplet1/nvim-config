@@ -9,6 +9,7 @@ M.general = {
     ["<leader>d"] = { '<cmd> "_d', "Delete without yanking" },
     ["<leader>p"] = { '<cmd> "_dp', "Replace without yank" },
     ["C-f"] = { "<cmd>silent !tmux neww tmux-sessionizer<CR>" },
+    ["<leader>gg"] = { ":LazyGit<CR>" },
   },
 }
 
