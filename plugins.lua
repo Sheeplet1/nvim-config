@@ -164,5 +164,12 @@ local plugins = {
       vim.cmd [[highlight IndentBlanklineContextStart guisp=#cba6f7 gui=underline]]
     end,
   },
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }
 return plugins
