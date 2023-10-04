@@ -8,8 +8,13 @@ M.general = {
     ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
     ["<leader>d"] = { '<cmd> "_d', "Delete without yanking" },
     ["<leader>p"] = { '<cmd> "_dp', "Replace without yank" },
-    ["C-f"] = { "<cmd>silent !tmux neww tmux-sessionizer<CR>" },
-    ["<leader>gg"] = { ":LazyGit<CR>" },
+    ["C-f"] = { "<cmd>silent !tmux neww tmux-sessionizer<CR>", "Silently open new tmux session" },
+    ["<leader>gg"] = { ":LazyGit<CR>", "Open LazyGit interface" },
+    ["<leader>cb"] = {
+      ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>YppVr#kk.",
+      "Create centered comment header block",
+    },
+    ["<leader>cl"] = { ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>", "Create centered comment header line" },
   },
 }
 
