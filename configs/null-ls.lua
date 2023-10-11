@@ -8,16 +8,18 @@ local code_actions = null_ls.builtins.code_actions
 local opts = {
   sources = {
     -- Frontend
-    formatting.prettierd.with {
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "vue",
-      "css",
-      "html",
-      "json",
-      "markdown",
+    formatting.prettier.with {
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "css",
+        "html",
+        "json",
+        "markdown",
+      },
     },
     diagnostics.eslint_d,
     code_actions.eslint_d,
@@ -28,8 +30,16 @@ local opts = {
     -- Python
     diagnostics.mypy,
     diagnostics.ruff,
-    formatting.isort,
-    formatting.black,
+    formatting.isort.with {
+      filetypes = {
+        "python",
+      },
+    },
+    formatting.black.with {
+      filetypes = {
+        "python",
+      },
+    },
 
     -- Github --
     code_actions.gitsigns,
@@ -52,4 +62,5 @@ local opts = {
     end
   end,
 }
+
 return opts

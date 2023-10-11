@@ -15,6 +15,7 @@ M.general = {
       "Create centered comment header block",
     },
     ["<leader>cl"] = { ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>", "Create centered comment header line" },
+    ["<leader>md"] = { ":MarkdownPreview<CR>", "Start MarkdownPreview" },
   },
 }
 
