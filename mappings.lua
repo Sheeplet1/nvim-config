@@ -16,6 +16,7 @@ M.general = {
     },
     ["<leader>cl"] = { ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>", "Create centered comment header line" },
     ["<leader>md"] = { ":MarkdownPreview<CR>", "Start MarkdownPreview" },
+    ["<leader>tt"] = { ":TodoTrouble<CR>", "Execute TodoTrouble" },
   },
 }
 
