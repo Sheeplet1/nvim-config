@@ -17,6 +17,22 @@ M.general = {
     ["<leader>cl"] = { ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>", "Create centered comment header line" },
     ["<leader>md"] = { ":MarkdownPreview<CR>", "Start MarkdownPreview" },
     ["<leader>tt"] = { ":TodoTrouble<CR>", "Execute TodoTrouble" },
+    ["<C-d>"] = { "<C-d>zz", "Centre screen while half page jumping" },
+    ["<C-u>"] = { "<C-u>zz", "Centre screen while half page jumping" },
+    ["n"] = { "nzzzv", "Search terms stay centred" },
+    ["N"] = { "Nzzzv", "Search terms stay centred" },
+    ["<leader>y"] = { '"+y', "Yank into system clipboard" },
+  },
+
+  v = {
+    ["J"] = { ":m '>+1<CR>gv=gv", "Move highlighted block down" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "Move highlighted block up" },
+    ["<leader>y"] = { '"+y', "Yank into system clipboard" },
+    ["<leader>d"] = { '<cmd> "_d', "Delete without yanking" },
+  },
+
+  i = {
+    ["<leader>y"] = { '"+y', "Yank into system clipboard" },
   },
 }
 
