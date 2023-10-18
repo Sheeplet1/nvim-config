@@ -32,9 +32,7 @@ M.general = {
     ["<leader>d"] = { '<cmd> "_d', "Delete without yanking" },
   },
 
-  i = {
-    ["<leader>y"] = { '"+y', "Yank into system clipboard" },
-  },
+  i = {},
 }
 
 M.dap = {
