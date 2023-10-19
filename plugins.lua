@@ -67,7 +67,6 @@ local plugins = {
         "html-lsp",
         "emmet-ls",
         "eslint-lsp",
-        "eslint_d",
         "js-debug-adapter",
       },
     },

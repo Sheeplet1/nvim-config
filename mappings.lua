@@ -22,7 +22,10 @@ M.general = {
     ["n"] = { "nzzzv", "Search terms stay centred" },
     ["N"] = { "Nzzzv", "Search terms stay centred" },
     ["<leader>y"] = { '"+y', "Yank into system clipboard" },
-    ["gb"] = { "<C-o>", "Jump back after going to definition" },
+    ["gb"] = { "<C-o>zzzv", "Jump back after going to definition" },
+    ["gd"] = { "gdzzzv", "Centre on go to definition" },
+    ["<S>}"] = { "<S>}zzzv" },
+    ["<S>{"] = { "<S>{zzzv" },
   },
 
   v = {

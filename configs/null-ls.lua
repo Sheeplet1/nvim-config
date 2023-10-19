@@ -21,8 +21,8 @@ local opts = {
         "markdown",
       },
     },
-    diagnostics.eslint_d,
-    code_actions.eslint_d,
+    diagnostics.eslint,
+    code_actions.eslint,
 
     -- Lua
     formatting.stylua,
