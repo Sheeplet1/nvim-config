@@ -46,30 +46,23 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        -- Python --
-        "pyright",
-        "debugpy",
-        "mypy",
-        "ruff",
-        "black",
-        "isort",
-        -- General Formatting --
-        "prettier",
-        "prettierd",
-        -- Lua Formatting --
-        "stylua",
-        -- Frontend --
-        "typescript-language-server",
-        "tailwindcss-language-server",
-        "css-lsp",
-        "html-lsp",
-        "emmet-ls",
-        "eslint-lsp",
-        "js-debug-adapter",
-      },
+    ensure_installed = {
+      -- NOTE: It is in mason-lspconfig.lua
+    }
+    dependencies = {
+      "neovim/nvim-lspconfig",
     },
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "williamboman/mason.nvim",
+    },
+    config = function()
+      -- FIX: Not sure if this is working
+      require "custom.configs.mason-lspconfig"
+    end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -148,7 +141,9 @@ local plugins = {
   {
     "folke/zen-mode.nvim",
     lazy = false,
-    opts = {},
+    config = function()
+      require "custom.configs.zen-mode"
+    end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -171,4 +166,5 @@ local plugins = {
     },
   },
 }
+
 return plugins
