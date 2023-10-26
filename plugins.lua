@@ -48,7 +48,7 @@ local plugins = {
     "williamboman/mason.nvim",
     ensure_installed = {
       -- NOTE: It is in mason-lspconfig.lua
-    }
+    },
     dependencies = {
       "neovim/nvim-lspconfig",
     },
