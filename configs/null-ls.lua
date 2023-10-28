@@ -1,26 +1,62 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require "null-ls"
 
+local root_has_file = function(files)
+  return function(utils)
+    return utils.root_has_file(files)
+  end
+end
+
+local eslint_root_files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
+local prettier_root_files = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" }
+
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
+-- Swapping between eslint and prettier formatting if given the files
+local check_formatting = {
+  eslint_formatting = {
+    condition = function(utils)
+      local has_eslint = root_has_file(eslint_root_files)(utils)
+      local has_prettier = root_has_file(prettier_root_files)(utils)
+      return has_eslint and not has_prettier
+    end,
+  },
+
+  prettier_formatting = {
+    -- condition = root_has_file(prettier_root_files),
+    condition = function(utils)
+      local has_eslint = root_has_file(eslint_root_files)(utils)
+      local has_prettier = root_has_file(prettier_root_files)(utils)
+      return (not has_eslint and not has_prettier) or has_prettier
+    end,
+  },
+}
+
 local opts = {
+
   sources = {
     -- Frontend
     formatting.prettier.with {
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "css",
-        "html",
-        "json",
-        "markdown",
-      },
+      check_formatting.prettier_formatting,
+      -- filetypes = {
+      --   "javascript",
+      --   "javascriptreact",
+      --   "typescript",
+      --   "typescriptreact",
+      --   "vue",
+      --   "css",
+      --   "html",
+      --   "json",
+      --   "markdown",
+      -- },
     },
+
+    formatting.eslint.with {
+      check_formatting.eslint_formatting,
+    },
+
     diagnostics.eslint,
     code_actions.eslint,
 
