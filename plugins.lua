@@ -146,6 +146,13 @@ local plugins = {
     end,
   },
   {
+    "folke/twilight.nvim",
+    lazy = false,
+    dependencies = {
+      "folke/zen-mode.nvim",
+    },
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     lazy = false,
     config = function()
