@@ -165,6 +165,10 @@ local plugins = {
       "nvim-lua/plenary.nvim",
     },
   },
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
 }
 
 return plugins
