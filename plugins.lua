@@ -38,6 +38,13 @@ local plugins = {
     end,
   },
   {
+    "theHamsta/nvim-dap-virtual-text",
+    lazy = false,
+    config = function(_, opts)
+      require("nvim-dap-virtual-text").setup()
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
@@ -46,9 +53,35 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
-    ensure_installed = {
-      -- NOTE: It is in mason-lspconfig.lua
+    opts = {
+      ensure_installed = {
+        "rust-analyzer",
+        -- Python --
+        "pyright",
+        "debugpy",
+        "mypy",
+        "ruff",
+        "black",
+        "isort",
+
+        -- General Formatting --
+        "prettier",
+        "prettierd",
+
+        -- Lua Formatting --
+        "stylua",
+
+        -- Frontend --
+        "typescript-language-server",
+        "tailwindcss-language-server",
+        "css-lsp",
+        "html-lsp",
+        "emmet-ls",
+        "eslint-lsp",
+        "js-debug-adapter",
+      },
     },
+
     dependencies = {
       "neovim/nvim-lspconfig",
     },
@@ -60,7 +93,6 @@ local plugins = {
       "williamboman/mason.nvim",
     },
     config = function()
-      -- FIX: Not sure if this is working
       require "custom.configs.mason-lspconfig"
     end,
   },
@@ -73,14 +105,8 @@ local plugins = {
   },
   {
     "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
     lazy = false,
-    opts = {},
-  },
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    config = true,
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
     "kylechui/nvim-surround",
@@ -104,6 +130,7 @@ local plugins = {
         "vue",
         "json",
         "lua",
+        "rust",
       },
     },
     dependencies = {
@@ -114,7 +141,6 @@ local plugins = {
     "folke/trouble.nvim",
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
   },
   {
     "glepnir/lspsaga.nvim",
@@ -166,13 +192,12 @@ local plugins = {
     },
   },
   {
-    "github/copilot.vim",
-    lazy = false,
-    config = function ()
-      vim.g.copilot_no_tab_map = true;
-      vim.g.copilot_assume_mapped = true;
-      vim.g.copilot_tab_fallback = "";
-    end
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {}
+    end,
   },
 }
 

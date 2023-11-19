@@ -1,5 +1,7 @@
 require("mason-lspconfig").setup {
   ensure_installed = {
+    "rust_analyzer",
+
     -- Python --
     "pyright",
     "debugpy",
@@ -7,11 +9,14 @@ require("mason-lspconfig").setup {
     "ruff",
     "black",
     "isort",
+
     -- General Formatting --
     "prettier",
     "prettierd",
+
     -- Lua Formatting --
     "stylua",
+
     -- Frontend --
     "typescript-language-server",
     "tailwindcss-language-server",
