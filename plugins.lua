@@ -55,14 +55,13 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "rust-analyzer",
-        -- Python --
         "pyright",
         "debugpy",
         "mypy",
         "ruff",
         "black",
         "isort",
+        "rust-analyzer",
 
         -- General Formatting --
         "prettier",

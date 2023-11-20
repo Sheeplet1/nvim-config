@@ -4,8 +4,8 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 local servers = {
-  -- PYTHON --
   "pyright",
+  "rust_analyzer",
 
   -- FRONTEND --
   "emmet_ls",
