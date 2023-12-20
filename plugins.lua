@@ -75,7 +75,6 @@ local plugins = {
         "tailwindcss-language-server",
         "css-lsp",
         "html-lsp",
-        "emmet-ls",
         "eslint-lsp",
         "js-debug-adapter",
       },
@@ -192,13 +191,6 @@ local plugins = {
     },
   },
   {
-    -- "github/copilot.vim",
-    -- lazy = false,
-    -- config = function()
-    --   vim.g.copilot_no_tab_map = true
-    --   vim.g.copilot_assume_mapped = true
-    --   vim.g.copilot_tab_fallback = ""
-    -- end,
     "zbirenbaum/copilot.lua",
     lazy = false,
     cmd = "Copilot",

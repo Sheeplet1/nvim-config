@@ -22,7 +22,6 @@ require("mason-lspconfig").setup {
     "tailwindcss-language-server",
     "css-lsp",
     "html-lsp",
-    "emmet-ls",
     "eslint-lsp",
     "js-debug-adapter",
   },
