@@ -94,8 +94,15 @@ local plugins = {
       require "custom.configs.mason-lspconfig"
     end,
   },
+  -- {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   lazy = false,
+  --   opts = function()
+  --     return require "custom.configs.null-ls"
+  --   end,
+  -- },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     lazy = false,
     opts = function()
       return require "custom.configs.null-ls"
