@@ -237,6 +237,17 @@ local plugins = {
       vim.g.rustfmt_autosave = 1
     end,
   },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      local harpoon = require "harpoon"
+      harpoon:setup()
+    end,
+  },
 }
 
 return plugins
