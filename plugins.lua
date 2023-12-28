@@ -24,19 +24,19 @@ local plugins = {
       require "custom.configs.dap"
     end,
   },
-  {
-    "mfussenegger/nvim-dap-python",
-    ft = "python",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "rcarriga/nvim-dap-ui",
-    },
-    config = function()
-      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-      require("dap-python").setup(path)
-      require("core.utils").load_mappings "dap"
-    end,
-  },
+  -- {
+  --   "mfussenegger/nvim-dap-python",
+  --   ft = "python",
+  --   dependencies = {
+  --     "mfussenegger/nvim-dap",
+  --     "rcarriga/nvim-dap-ui",
+  --   },
+  --   config = function()
+  --     local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+  --     require("dap-python").setup(path)
+  --     require("core.utils").load_mappings "dap"
+  --   end,
+  -- },
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
@@ -63,7 +63,7 @@ local plugins = {
         "isort",
         "rust-analyzer",
 
-        -- General Formatting --
+        -- Formatting --
         "prettier",
         "prettierd",
 
@@ -94,13 +94,6 @@ local plugins = {
       require "custom.configs.mason-lspconfig"
     end,
   },
-  -- {
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   lazy = false,
-  --   opts = function()
-  --     return require "custom.configs.null-ls"
-  --   end,
-  -- },
   {
     "nvimtools/none-ls.nvim",
     lazy = false,
@@ -170,26 +163,26 @@ local plugins = {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
-  {
-    "folke/zen-mode.nvim",
-    lazy = false,
-    config = function()
-      require "custom.configs.zen-mode"
-    end,
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    lazy = false,
-    config = function()
-      require("indent_blankline").setup {
-        show_current_context = true,
-        show_current_context_start = true,
-        show_end_of_line = true,
-      }
-      vim.cmd [[highlight IndentBlanklineContextChar guifg=#cba6f7 gui=nocombine]]
-      vim.cmd [[highlight IndentBlanklineContextStart guisp=#cba6f7 gui=underline]]
-    end,
-  },
+  -- {
+  --   "folke/zen-mode.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require "custom.configs.zen-mode"
+  --   end,
+  -- },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require("indent_blankline").setup {
+  --       show_current_context = true,
+  --       show_current_context_start = true,
+  --       show_end_of_line = true,
+  --     }
+  --     vim.cmd [[highlight IndentBlanklineContextChar guifg=#cba6f7 gui=nocombine]]
+  --     vim.cmd [[highlight IndentBlanklineContextStart guisp=#cba6f7 gui=underline]]
+  --   end,
+  -- },
   {
     "kdheepak/lazygit.nvim",
     lazy = false,
@@ -206,37 +199,37 @@ local plugins = {
       require "custom.configs.copilot"
     end,
   },
-  {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "custom.configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
-  },
-  {
-    "saecki/crates.nvim",
-    ft = { "toml" },
-    config = function(_, opts)
-      local crates = require "crates"
-      crates.setup(opts)
-      require("cmp").setup.buffer {
-        sources = { { name = "crates" } },
-      }
-      crates.show()
-      require("core.utils").load_mappings "crates"
-    end,
-  },
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
-    end,
-  },
+  -- {
+  --   "simrat39/rust-tools.nvim",
+  --   ft = "rust",
+  --   dependencies = "neovim/nvim-lspconfig",
+  --   opts = function()
+  --     return require "custom.configs.rust-tools"
+  --   end,
+  --   config = function(_, opts)
+  --     require("rust-tools").setup(opts)
+  --   end,
+  -- },
+  -- {
+  --   "saecki/crates.nvim",
+  --   ft = { "toml" },
+  --   config = function(_, opts)
+  --     local crates = require "crates"
+  --     crates.setup(opts)
+  --     require("cmp").setup.buffer {
+  --       sources = { { name = "crates" } },
+  --     }
+  --     crates.show()
+  --     require("core.utils").load_mappings "crates"
+  --   end,
+  -- },
+  -- {
+  --   "rust-lang/rust.vim",
+  --   ft = "rust",
+  --   init = function()
+  --     vim.g.rustfmt_autosave = 1
+  --   end,
+  -- },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
