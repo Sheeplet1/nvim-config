@@ -72,3 +72,7 @@ lspconfig.eslint.setup {
     "package.json"
   ),
 }
+
+vim.diagnostic.config {
+  virtual_text = false,
+}

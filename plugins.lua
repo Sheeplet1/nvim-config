@@ -142,10 +142,7 @@ local plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
-    "glepnir/lspsaga.nvim",
-    opts = {
-      branch = "main",
-    },
+    "nvimdev/lspsaga.nvim",
     config = function()
       require("lspsaga").setup {}
     end,
@@ -239,6 +236,19 @@ local plugins = {
     config = function()
       local harpoon = require "harpoon"
       harpoon:setup()
+    end,
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require "custom.configs.lsp_signature"
+    end,
+  },
+  {
+    "ErichDonGubler/lsp_lines.nvim",
+    lazy = false,
+    config = function()
+      require("lsp_lines").setup {}
     end,
   },
 }
