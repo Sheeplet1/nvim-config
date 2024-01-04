@@ -42,8 +42,6 @@ local opts = {
     formatting.prettierd.with {
       check_formatting.prettier_formatting,
     },
-    diagnostics.eslint,
-    code_actions.eslint,
 
     -- Lua
     formatting.stylua,
@@ -73,6 +71,7 @@ local opts = {
         group = augroup,
         buffer = bufnr,
       }
+
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         buffer = bufnr,
