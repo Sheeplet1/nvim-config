@@ -244,13 +244,6 @@ local plugins = {
       require "custom.configs.lsp_signature"
     end,
   },
-  {
-    "ErichDonGubler/lsp_lines.nvim",
-    lazy = false,
-    config = function()
-      require("lsp_lines").setup {}
-    end,
-  },
 }
 
 return plugins

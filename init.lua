@@ -30,3 +30,20 @@ autocmd("TextYankPost", {
     }
   end,
 })
+
+-- You will likely want to reduce updatetime which affects CursorHold
+-- note: this setting is global and should be set only once
+-- vim.o.updatetime = 250
+-- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+--   group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+--   callback = function()
+--     vim.diagnostic.open_float(nil, { focus = false })
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+--   group = vim.api.nvim_create_augroup("float_diagnostic_cursor", { clear = true }),
+--   callback = function()
+--     vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+--   end,
+-- })
