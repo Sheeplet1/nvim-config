@@ -1,5 +1,6 @@
 vim.opt.colorcolumn = "80"
 vim.wo.relativenumber = true
+vim.o.cmdheight = 0
 
 -- resize nvimtree if window got resized
 function NvimTree_width_ratio(percentage)

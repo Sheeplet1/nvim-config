@@ -187,15 +187,15 @@ local plugins = {
       "nvim-lua/plenary.nvim",
     },
   },
-  {
-    "zbirenbaum/copilot.lua",
-    lazy = false,
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require "custom.configs.copilot"
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   lazy = false,
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require "custom.configs.copilot"
+  --   end,
+  -- },
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
