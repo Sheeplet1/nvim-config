@@ -178,15 +178,4 @@ M.harpoon = {
   },
 }
 
-M.lsp_lines = {
-  n = {
-    ["<leader>l"] = {
-      function()
-        require("lsp_lines").toggle()
-      end,
-      "[lsp_lines] Toggle",
-    },
-  },
-}
-
 return M
