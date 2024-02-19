@@ -5,6 +5,7 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
+--[[
 -- CODE FOR CHOOSING BETWEEN ESLINT OR PRETTIER FORMATTING --
 local root_has_file = function(files)
   return function(utils)
@@ -34,14 +35,17 @@ local check_formatting = {
     end,
   },
 }
+]]
+--
 
 local opts = {
 
   sources = {
     -- Frontend
-    formatting.prettierd.with {
-      check_formatting.prettier_formatting,
-    },
+    -- formatting.prettierd.with {
+    --   check_formatting.prettier_formatting,
+    -- },
+    formatting.prettierd,
 
     -- Lua
     formatting.stylua,
