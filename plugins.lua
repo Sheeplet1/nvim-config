@@ -24,19 +24,6 @@ local plugins = {
       require "custom.configs.dap"
     end,
   },
-  -- {
-  --   "mfussenegger/nvim-dap-python",
-  --   ft = "python",
-  --   dependencies = {
-  --     "mfussenegger/nvim-dap",
-  --     "rcarriga/nvim-dap-ui",
-  --   },
-  --   config = function()
-  --     local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-  --     require("dap-python").setup(path)
-  --     require("core.utils").load_mappings "dap"
-  --   end,
-  -- },
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
@@ -61,7 +48,7 @@ local plugins = {
         "ruff",
         "black",
         "isort",
-        -- "rust-analyzer",
+        "rust-analyzer",
 
         -- Formatting --
         "prettier",
@@ -222,13 +209,13 @@ local plugins = {
       require "custom.configs.lsp_signature"
     end,
   },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("telescope").load_extension "ui-select"
-    end,
-  },
+  -- {
+  --   "nvim-telescope/telescope-ui-select.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("telescope").load_extension "ui-select"
+  --   end,
+  -- },
 }
 
 return plugins
