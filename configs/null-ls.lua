@@ -27,9 +27,6 @@ local opts = {
         "python",
       },
     },
-
-    -- Github --
-    code_actions.gitsigns,
   },
 
   -- Autoformat on save --
