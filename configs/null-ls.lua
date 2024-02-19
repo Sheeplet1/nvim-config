@@ -45,7 +45,8 @@ local opts = {
     -- formatting.prettierd.with {
     --   check_formatting.prettier_formatting,
     -- },
-    formatting.prettierd,
+    -- formatting.prettierd,
+    formatting.prettier,
 
     -- Lua
     formatting.stylua,
