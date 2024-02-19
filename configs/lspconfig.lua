@@ -5,7 +5,6 @@ local lspconfig = require "lspconfig"
 
 local servers = {
   "pyright",
-  "rust_analyzer",
 
   -- FRONTEND --
   "html",
@@ -72,7 +71,3 @@ lspconfig.eslint.setup {
     "package.json"
   ),
 }
-
--- vim.diagnostic.config {
---   virtual_text = false,
--- }

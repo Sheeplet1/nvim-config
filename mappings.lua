@@ -176,4 +176,14 @@ M.harpoon = {
   },
 }
 
+-- M.rustacean = {
+--   n = {
+--     ["<leader>ca"] = {
+--       function()
+--         vim.cmd.RustLsp "codeAction"
+--       end,
+--     },
+--   },
+-- }
+
 return M
