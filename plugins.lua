@@ -24,23 +24,10 @@ local plugins = {
       require "custom.configs.dap"
     end,
   },
-  -- {
-  --   "mfussenegger/nvim-dap-python",
-  --   ft = "python",
-  --   dependencies = {
-  --     "mfussenegger/nvim-dap",
-  --     "rcarriga/nvim-dap-ui",
-  --   },
-  --   config = function()
-  --     local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-  --     require("dap-python").setup(path)
-  --     require("core.utils").load_mappings "dap"
-  --   end,
-  -- },
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
-    config = function(_, opts)
+    config = function(_, _)
       require("nvim-dap-virtual-text").setup()
     end,
   },
@@ -167,19 +154,6 @@ local plugins = {
   --     require "custom.configs.zen-mode"
   --   end,
   -- },
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require("indent_blankline").setup {
-  --       show_current_context = true,
-  --       show_current_context_start = true,
-  --       show_end_of_line = true,
-  --     }
-  --     vim.cmd [[highlight IndentBlanklineContextChar guifg=#cba6f7 gui=nocombine]]
-  --     vim.cmd [[highlight IndentBlanklineContextStart guisp=#cba6f7 gui=underline]]
-  --   end,
-  -- },
   {
     "kdheepak/lazygit.nvim",
     lazy = false,
@@ -244,13 +218,13 @@ local plugins = {
       require "custom.configs.lsp_signature"
     end,
   },
-  -- {
-  --   "ErichDonGubler/lsp_lines.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require("lsp_lines").setup {}
-  --   end,
-  -- },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("telescope").load_extension "ui-select"
+    end,
+  },
 }
 
 return plugins
