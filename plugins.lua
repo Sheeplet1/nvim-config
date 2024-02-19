@@ -209,7 +209,7 @@ local plugins = {
   },
   {
     "saecki/crates.nvim",
-    ft = { "toml" },
+    ft = { "rust", "toml" },
     config = function(_, opts)
       local crates = require "crates"
       crates.setup(opts)
@@ -228,6 +228,11 @@ local plugins = {
     end,
   },
   {
+    "mrcjkb/rustaceanvim",
+    version = "^4", -- Recommended
+    ft = { "rust" },
+  },
+  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = {
@@ -244,13 +249,13 @@ local plugins = {
       require "custom.configs.lsp_signature"
     end,
   },
-  -- {
-  --   "ErichDonGubler/lsp_lines.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require("lsp_lines").setup {}
-  --   end,
-  -- },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = "nvim-telescope/telescope-ui-select.nvim",
+    config = function()
+      require("telescope").load_extension "ui-select"
+    end,
+  },
 }
 
 return plugins

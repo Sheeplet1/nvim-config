@@ -46,7 +46,7 @@ local opts = {
     --   check_formatting.prettier_formatting,
     -- },
     -- formatting.prettierd,
-    formatting.prettier,
+    formatting.prettierd,
 
     -- Lua
     formatting.stylua,
@@ -66,7 +66,7 @@ local opts = {
     },
 
     -- Github --
-    code_actions.gitsigns,
+    -- code_actions.gitsigns,
   },
 
   -- Autoformat on save --

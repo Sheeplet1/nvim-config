@@ -2,6 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+local util = require "lspconfig/util"
 
 local servers = {
   "pyright",
@@ -71,6 +72,18 @@ lspconfig.eslint.setup {
     ".eslintrc.yaml",
     "package.json"
   ),
+}
+
+lspconfig.rust_analyzer.setup {
+  filetypes = { "rust" },
+  root_dir = util.root_pattern "Cargo.toml",
+  settings = {
+    ["rust_analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
 }
 
 -- vim.diagnostic.config {
