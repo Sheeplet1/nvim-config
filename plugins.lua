@@ -61,7 +61,7 @@ local plugins = {
         "ruff",
         "black",
         "isort",
-        "rust-analyzer",
+        -- "rust-analyzer",
 
         -- Formatting --
         "prettier",
@@ -160,26 +160,6 @@ local plugins = {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
-  -- {
-  --   "folke/zen-mode.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require "custom.configs.zen-mode"
-  --   end,
-  -- },
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require("indent_blankline").setup {
-  --       show_current_context = true,
-  --       show_current_context_start = true,
-  --       show_end_of_line = true,
-  --     }
-  --     vim.cmd [[highlight IndentBlanklineContextChar guifg=#cba6f7 gui=nocombine]]
-  --     vim.cmd [[highlight IndentBlanklineContextStart guisp=#cba6f7 gui=underline]]
-  --   end,
-  -- },
   {
     "kdheepak/lazygit.nvim",
     lazy = false,
@@ -196,17 +176,6 @@ local plugins = {
   --     require "custom.configs.copilot"
   --   end,
   -- },
-  {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "custom.configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
-  },
   {
     "saecki/crates.nvim",
     ft = { "rust", "toml" },
@@ -231,6 +200,10 @@ local plugins = {
     "mrcjkb/rustaceanvim",
     version = "^4", -- Recommended
     ft = { "rust" },
+    dependencies = "neovim/nvim-lspconfig",
+    config = function()
+      require "custom.configs.rustaceanvim"
+    end,
   },
   {
     "ThePrimeagen/harpoon",
@@ -250,8 +223,8 @@ local plugins = {
     end,
   },
   {
-    "nvim-telescope/telescope.nvim",
-    dependencies = "nvim-telescope/telescope-ui-select.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
+    event = "VeryLazy",
     config = function()
       require("telescope").load_extension "ui-select"
     end,

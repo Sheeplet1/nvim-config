@@ -6,7 +6,7 @@ local util = require "lspconfig/util"
 
 local servers = {
   "pyright",
-  "rust_analyzer",
+  -- "rust_analyzer",
 
   -- FRONTEND --
   "html",
@@ -73,19 +73,3 @@ lspconfig.eslint.setup {
     "package.json"
   ),
 }
-
-lspconfig.rust_analyzer.setup {
-  filetypes = { "rust" },
-  root_dir = util.root_pattern "Cargo.toml",
-  settings = {
-    ["rust_analyzer"] = {
-      cargo = {
-        allFeatures = true,
-      },
-    },
-  },
-}
-
--- vim.diagnostic.config {
---   virtual_text = false,
--- }
