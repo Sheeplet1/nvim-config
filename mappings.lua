@@ -103,7 +103,7 @@ M.lazygit = {
 
 M.zenmode = {
   n = {
-    ["<leader>zz"] = { "<cmd> ZenMode<CR>", "[zenmode] Toggle" },
+    ["<leader>zm"] = { "<cmd> ZenMode<CR>", "[zenmode] Toggle" },
   },
 }
 
