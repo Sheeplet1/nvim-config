@@ -48,3 +48,7 @@ autocmd("TextYankPost", {
 --     vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
 --   end,
 -- })
+
+-- vim.diagnostic.config {
+--   virtual_text = false,
+-- }

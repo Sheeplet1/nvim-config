@@ -1,4 +1,5 @@
 local plugins = {
+  --------------------------------- nvim-dap ---------------------------------
   {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
@@ -17,6 +18,7 @@ local plugins = {
       end
     end,
   },
+
   {
     "mfussenegger/nvim-dap",
     config = function()
@@ -24,6 +26,7 @@ local plugins = {
       require "custom.configs.dap"
     end,
   },
+
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
@@ -31,6 +34,8 @@ local plugins = {
       require("nvim-dap-virtual-text").setup()
     end,
   },
+
+  ----------------------------- default plugins ------------------------------
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -38,26 +43,28 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+
   {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- Python --
         "pyright",
         "debugpy",
         "mypy",
         "ruff",
         "black",
         "isort",
-        "rust-analyzer",
 
         -- Formatting --
         "prettier",
         "prettierd",
 
         -- Lua Formatting --
+        "lua-language-server",
         "stylua",
 
-        -- Frontend --
+        -- WebDev --
         "typescript-language-server",
         "tailwindcss-language-server",
         "css-lsp",
@@ -71,6 +78,7 @@ local plugins = {
       "neovim/nvim-lspconfig",
     },
   },
+
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
@@ -81,27 +89,7 @@ local plugins = {
       require "custom.configs.mason-lspconfig"
     end,
   },
-  {
-    "nvimtools/none-ls.nvim",
-    lazy = false,
-    opts = function()
-      return require "custom.configs.null-ls"
-    end,
-  },
-  {
-    "folke/todo-comments.nvim",
-    lazy = false,
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*",
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {}
-    end,
-  },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -123,17 +111,55 @@ local plugins = {
       { "windwp/nvim-ts-autotag", opts = {} },
     },
   },
+
+  ------------------------------ custom plugins ------------------------------
+
+  -- lsp configuration
+  {
+    "nvimtools/none-ls.nvim",
+    lazy = false,
+    opts = function()
+      return require "custom.configs.none-ls"
+    end,
+  },
+
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup {
+        lightbulb = {
+          virtual_text = false,
+        },
+      }
+    end,
+  },
+
+  -- expand comment functionality
+  {
+    "folke/todo-comments.nvim",
+    lazy = false,
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {}
+    end,
+  },
+
+  -- pretty diagnostics panel
   {
     "folke/trouble.nvim",
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  {
-    "nvimdev/lspsaga.nvim",
-    config = function()
-      require("lspsaga").setup {}
-    end,
-  },
+
+  -- open markdown in browser
   {
     "iamcco/markdown-preview.nvim",
     lazy = false,
@@ -143,10 +169,14 @@ local plugins = {
       vim.fn["mkdp#util#install"]()
     end,
   },
+
+  -- sync vim keybinds with tmux panels
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+
+  -- distraction-free coding
   {
     "folke/zen-mode.nvim",
     lazy = false,
@@ -154,6 +184,8 @@ local plugins = {
       require "custom.configs.zen-mode"
     end,
   },
+
+  -- ui for git commands
   {
     "kdheepak/lazygit.nvim",
     lazy = false,
@@ -161,6 +193,7 @@ local plugins = {
       "nvim-lua/plenary.nvim",
     },
   },
+
   -- {
   --   "zbirenbaum/copilot.lua",
   --   lazy = false,
@@ -170,17 +203,72 @@ local plugins = {
   --     require "custom.configs.copilot"
   --   end,
   -- },
+
+  -- quick file switching w/ marks
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "custom.configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      local harpoon = require "harpoon"
+      harpoon:setup()
     end,
   },
+
+  -- shows function hints while typing
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require "custom.configs.lsp_signature"
+    end,
+  },
+
+  -- pretty ui for code-actions mainly
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("telescope").load_extension "ui-select"
+    end,
+  },
+
+  -- smooth scroll
+  {
+    "karb94/neoscroll.nvim",
+    keys = { "<C-d>", "<C-u>" },
+    config = function()
+      require("neoscroll").setup()
+    end,
+  },
+
+  -- dim inactive buffers
+  {
+    "andreadev-it/shade.nvim",
+    config = function()
+      require("shade").setup {
+        exclude_filetypes = { "NvimTree" },
+      }
+    end,
+  },
+
+  -- undotree
+  {
+    "mbbill/undotree",
+    cmd = "UndotreeToggle",
+  },
+
+  ----------------------------------- rust -----------------------------------
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^4", -- Recommended
+    ft = { "rust" },
+    config = function()
+      require "custom.configs.rustaceanvim"
+    end,
+  },
+
   {
     "saecki/crates.nvim",
     ft = { "toml" },
@@ -194,35 +282,12 @@ local plugins = {
       require("core.utils").load_mappings "crates"
     end,
   },
+
   {
     "rust-lang/rust.vim",
     ft = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
-    end,
-  },
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      local harpoon = require "harpoon"
-      harpoon:setup()
-    end,
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    config = function()
-      require "custom.configs.lsp_signature"
-    end,
-  },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("telescope").load_extension "ui-select"
     end,
   },
 }

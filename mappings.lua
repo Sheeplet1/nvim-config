@@ -16,8 +16,6 @@ M.general = {
     ["n"] = { "nzzzv", "Search terms stay centred" },
     ["N"] = { "Nzzzv", "Search terms stay centred" },
     ["<leader>y"] = { '"+y', "Yank into system clipboard" },
-    -- ["gb"] = { "<C-t>", "Jump back" },
-    -- ["gd"] = { "gdzz", "Centre on go to definition" },
     ["<S-}>"] = { "<S-}>zzzv" },
     ["<S-{>"] = { "<S-{>zzzv" },
     ["<leader>w"] = { ":w<CR>", "Save file" },
@@ -119,6 +117,18 @@ M.todotrouble = {
   },
 }
 
+M.shade = {
+  n = {
+    ["<Bslash>"] = {
+      function()
+        require("shade").toggle()
+      end,
+
+      "[shade] Toggle shade.nvim",
+    },
+  },
+}
+
 M.harpoon = {
   n = {
     ["<leader>h"] = {
@@ -177,15 +187,5 @@ M.harpoon = {
     ["<leader>hN"] = { "<cmd>lua require('harpoon'):list():prev()<cr>", "[harpoon] Prev file" },
   },
 }
-
--- M.rustacean = {
---   n = {
---     ["<leader>ca"] = {
---       function()
---         vim.cmd.RustLsp "codeAction"
---       end,
---     },
---   },
--- }
 
 return M

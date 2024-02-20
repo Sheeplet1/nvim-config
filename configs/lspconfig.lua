@@ -6,7 +6,7 @@ local lspconfig = require "lspconfig"
 local servers = {
   "pyright",
 
-  -- FRONTEND --
+  -- WebDev --
   "html",
   "cssls",
   "tsserver",
