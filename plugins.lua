@@ -105,6 +105,8 @@ local plugins = {
         "json",
         "lua",
         "rust",
+        "markdown",
+        "markdown_inline",
       },
     },
     dependencies = {
@@ -220,8 +222,9 @@ local plugins = {
   -- shows function hints while typing
   {
     "ray-x/lsp_signature.nvim",
+    event = "LspAttach",
     config = function()
-      require "custom.configs.lsp_signature"
+      require("lsp_signature").setup {}
     end,
   },
 
@@ -237,6 +240,7 @@ local plugins = {
   -- smooth scroll
   {
     "karb94/neoscroll.nvim",
+    lazy = false,
     keys = { "<C-d>", "<C-u>" },
     config = function()
       require("neoscroll").setup()

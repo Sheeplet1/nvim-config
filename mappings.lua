@@ -188,4 +188,13 @@ M.harpoon = {
   },
 }
 
+M.undotree = {
+  n = {
+    ["<leader>ut"] = {
+      "<cmd> UndotreeToggle<CR>",
+      "Open Undo Tree",
+    },
+  },
+}
+
 return M
